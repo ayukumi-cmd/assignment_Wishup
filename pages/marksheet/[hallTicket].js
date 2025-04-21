@@ -59,7 +59,7 @@ export default function Marksheet() {
           <Descriptions.Item label="Physics">{marks.physics}</Descriptions.Item>
           <Descriptions.Item label="Chemistry">{marks.chemistry}</Descriptions.Item>
           <Descriptions.Item label="Total Marks">{total}</Descriptions.Item>
-          <Descriptions.Item label="Rank">{rank}</Descriptions.Item>
+          {/* <Descriptions.Item label="Rank">{rank}</Descriptions.Item> */}
           <Descriptions.Item label="Status">{passed ? '✅ Passed' : '❌ Failed'}</Descriptions.Item>
           {disqualifiedSubject && (
             <Descriptions.Item label="Disqualified In" style={{ color: 'red' }}>

@@ -1,4 +1,5 @@
-/* globals.css */
+
+/*to be honest this css part is written AI assistant */
 
 * {
     margin: 0;
@@ -23,8 +24,7 @@
   a:hover {
     text-decoration: underline;
   }
-  
-  /* Optional overrides */
+
   .ant-btn-primary {
     border-radius: 8px;
   }
@@ -33,8 +33,6 @@
     border-radius: 12px;
     box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
   }
-  
-  /* Hide during print */
   @media print {
     .no-print {
       display: none !important;

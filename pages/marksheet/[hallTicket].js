@@ -1,3 +1,4 @@
+
 import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
 import { Card, Typography, Descriptions, Button, message, Spin } from 'antd';
@@ -45,7 +46,7 @@ export default function Marksheet() {
 
   if (!data) return null;
 
-  const { name, email, marks, total, passed, disqualifiedSubject } = data;
+  const { name, email, marks, total, passed, disqualifiedSubjects } = data;
 
   return (
     <div style={{ minHeight: '100vh', backgroundColor: '#f0f2f5', padding: 20 }}>
@@ -59,11 +60,10 @@ export default function Marksheet() {
           <Descriptions.Item label="Physics">{marks.physics}</Descriptions.Item>
           <Descriptions.Item label="Chemistry">{marks.chemistry}</Descriptions.Item>
           <Descriptions.Item label="Total Marks">{total}</Descriptions.Item>
-          {/* <Descriptions.Item label="Rank">{rank}</Descriptions.Item> */}
           <Descriptions.Item label="Status">{passed ? '✅ Passed' : '❌ Failed'}</Descriptions.Item>
-          {disqualifiedSubject && (
-            <Descriptions.Item label="Disqualified In" style={{ color: 'red' }}>
-              {disqualifiedSubject}
+          {disqualifiedSubjects && (
+            <Descriptions.Item label="Disqualified In">
+              <span style={{ color: 'red' }}>{disqualifiedSubjects}</span>
             </Descriptions.Item>
           )}
         </Descriptions>

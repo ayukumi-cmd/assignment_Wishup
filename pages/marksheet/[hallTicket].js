@@ -45,7 +45,7 @@ export default function Marksheet() {
 
   if (!data) return null;
 
-  const { name, email, marks, total, rank, passed, disqualifiedSubject } = data;
+  const { name, email, marks, total, passed, disqualifiedSubject } = data;
 
   return (
     <div style={{ minHeight: '100vh', backgroundColor: '#f0f2f5', padding: 20 }}>

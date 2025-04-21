@@ -1,7 +1,3 @@
-
-
-
-
 import mongoose from "mongoose";
 import { faker } from "@faker-js/faker";
 import Candidate from "../models/Candidate.js";
@@ -23,14 +19,15 @@ async function seedDB() {
     const math = faker.number.int({ min: 0, max: 70 });
     const total = physics + chemistry + math;
 
-    const disqualifiedSubject =
-      (physics < 20 && "Physics") ||
-      (chemistry < 20 && "Chemistry") ||
-      (math < 20 && "Math") ||
-      null;
+    const disqualified = [];
+    if (physics < 20) disqualified.push("Physics");
+    if (chemistry < 20) disqualified.push("Chemistry");
+    if (math < 20) disqualified.push("Math");
+
+    const disqualifiedSubjects = disqualified.join(", "); // comma-separated string
 
     const passed =
-      total >= 80 && (total > 100 ? !disqualifiedSubject : disqualifiedSubject === null);
+      total >= 80 &&  disqualified.length === 0;
 
     candidates.push({
       name: faker.person.fullName(),
@@ -39,7 +36,7 @@ async function seedDB() {
       marks: { physics, chemistry, math },
       total,
       rank: 0,
-      disqualifiedSubject,
+      disqualifiedSubjects,
       passed,
     });
   }
